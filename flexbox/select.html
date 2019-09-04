@@ -1,0 +1,165 @@
+<!-- DOCTYPE html говорит браузеру что это современный формат HTML 5 -->
+<!DOCTYPE html>
+<!-- Открываем главный тэг html, атрибут lang говорит браузеру на каком языке будет этот документ, ставим ru -->
+<html lang="ru">
+  <!-- head тэг - это шапка документа, тут мы говорим как он называется и про что он, и так же можем добавить связанные дркументы, например файлы со стилями (css) -->
+  <head>
+    <!-- Тэги meta позволяют нам говорить про документ, в этом случае какая кодировка у текста (charset), utf-8  -->
+    <meta charset="UTF-8" />
+    <!-- title - тэг названия страницы, который как правило показывется вверху окна браузера -->
+    <title>Демонстрация Flexbox интерактивная</title>
+  </head>
+  <!-- Тэг body - все, что видит пользователь в браузере -->
+  <body>
+    <!-- 4 контейнера, каждый с 4 квадратиками внутри  -->
+    <h3>Контейнер Flexbox</h3>
+    <form id="controls" class="controls">
+      <div>
+        <h3>flex-direction (Ось направления)</h3>
+        <input id="fdr" type="radio" name="flex-dir" value="row" checked />
+        <label for="fdr">row (Ряд)</label><br />
+
+        <input id="fdrr" type="radio" name="flex-dir" value="row-reverse" />
+        <label for="fdrr">row-reverse (Ряд-обратный)</label><br />
+
+        <input id="fdc" type="radio" name="flex-dir" value="column" />
+        <label for="fdc">column (Колонна)</label><br />
+
+        <input id="fdcr" type="radio" name="flex-dir" value="column-reverse" />
+        <label for="fdcr">column-reverse (Колонна-обратная)</label>
+      </div>
+
+      <div>
+        <h3>justify-content (Позиционирование вдоль оси)</h3>
+        <input
+          id="jcfs"
+          type="radio"
+          name="just-cont"
+          value="flex-start"
+          checked
+        />
+        <label for="jcfs">flex-start (Начало оси)</label><br />
+
+        <input id="jcfe" type="radio" name="just-cont" value="flex-end" />
+        <label for="jcfe">flex-end (Конец оси)</label><br />
+
+        <input id="jcc" type="radio" name="just-cont" value="center" />
+        <label for="jcc">center (Середина оси)</label><br />
+
+        <input id="jcsb" type="radio" name="just-cont" value="space-between" />
+        <label for="jcsb">space-between (Промежуток между детьми)</label><br />
+
+        <input id="jcsa" type="radio" name="just-cont" value="space-around" />
+        <label for="jcsa">space-around (Промежуток вокруг детей)</label><br />
+
+        <input id="jcse" type="radio" name="just-cont" value="space-evenly" />
+        <label for="jcse">space-evenly (Одинаковые промежутки)</label>
+      </div>
+
+      <div>
+        <h3>align-items (Позиционирование поперек оси)</h3>
+
+        <input
+          id="ais"
+          type="radio"
+          name="al-it"
+          value="stretch"
+          checked
+        />
+        <label for="ais">stretch (Растянуть)</label><br />
+
+        <input id="aifs" type="radio" name="al-it" value="flex-start" />
+        <label for="aifs">flex-start (Начало оси)</label><br />
+
+        <input id="aife" type="radio" name="al-it" value="flex-end" />
+        <label for="aife">flex-end (Конец оси)</label><br />
+
+        <input id="aic" type="radio" name="al-it" value="center" />
+        <label for="aic">center (Середина оси)</label><br />
+      </div>
+    </form>
+    <div id="demo" class="demo">
+      <div class="square">A</div>
+      <div class="square">B</div>
+      <div class="square">C</div>
+      <div class="square">D</div>
+    </div>
+  </body>
+
+  <style>
+    /* html и body тэги, убираем у них отступы и границы, меняем шрифт на более приятный */
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      /* font-family управляет шрифтом, в разных браузерах и на разных ОС по умолчанию стоят разные шрифты. sans-serif это шрифты со сглаженными линиями, а serif - шрифты со строгими линиями, как заголовки  */
+      font-family: sans-serif;
+    }
+
+    /* все тэги h3 - выровнить текст посередине */
+    h3 {
+      text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .controls div {
+      margin: 10px;
+    }
+
+    /* Все тэги с классом demo - добавить розовую границу толщиной 2 пикселя и добавить отступ 5 пикселей вокруг */
+    .demo {
+      border: 2px solid #ff3d99;
+      margin: 5px;
+      display: flex;
+    }
+
+    /* Все тэги с классом square (квадрат) - заливка фиолетового цвета, ширина и высота 150 пикселей, отступ со всех сторон 5 пикселей. Так же - каждый квадрат является сам контейнером Flexbox, и позиционирует все ровно посередине */
+    .square {
+      background-color: rebeccapurple;
+      color: white;
+      font-size: 30px;
+      height: 150px;
+      width: 150px;
+      margin: 5px;
+
+      /* Самый легкий способ поставить содержимое ровно посередине */
+      display: flex;
+      /* justify-content говорит как ставить содержимое по оси (по умолчанию ось идет горизонтально справа налево, её можно поменять с помощию атрибута flex-direction (row, column, row-reverse, column-reverse) */
+      justify-content: center;
+      /* align-items говорит как ставить содержимое перпендикулярно оси */
+      align-items: center;
+    }
+  </style>
+
+  <script>
+    const form = document.getElementById(`controls`);
+    form.onchange = e => {
+      e.preventDefault();
+      handleStyleSelect(e.target.name, e.target.value);
+    };
+    const handleStyleSelect = (name, value) => {
+      const demo = document.getElementById(`demo`);
+      switch (name) {
+        case `flex-dir`:
+          demo.style.flexDirection = value;
+          break;
+
+        case `just-cont`:
+          demo.style.justifyContent = value;
+          break;
+
+        case `al-it`:
+          demo.style.alignItems = value;
+          break;
+
+        default:
+          console.log(`Fel through lol`);
+      }
+    };
+  </script>
+  <!-- Закрываем документ -->
+</html>
