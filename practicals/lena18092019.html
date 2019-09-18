@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Урок 1</title>
+  </head>
+  <body>
+    <h3>
+      Контейнер c детьми по середине
+    </h3>
+    <div class="demo">
+      <div class="square">
+        <div class="odin">
+          <span>Privet Slava!</span>
+        </div>
+        <div class="dva">
+          <div class="left">L</div>
+          <div class="right">R</div>
+          <div class="go">G</div>
+        </div>
+      </div>
+
+      <div class="square">B</div>
+      <div class="square">C</div>
+      <div class="square">D</div>
+    </div>
+  </body>
+</html>
+<style>
+  html {
+    font-family: sans-serif;
+  }
+  .square {
+    background-color: rgba(209, 25, 250, 0.5);
+    height: 100px;
+    width: 150px;
+    margin: 7px;
+
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .odin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+  }
+  .dva {
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+  }
+  .right {
+    display: flex;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+  }
+
+  .square div {
+    border: 1px solid black;
+  }
+
+  .demo {
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    justify-content: space-evenly;
+  }
+</style>
